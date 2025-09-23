@@ -1,0 +1,100 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml"
+     th:fragment="header(usuarioLogueado, nombreUsuario)" >
+<!-- Mostrar header para usuario logueado -->
+<div th:if="${usuarioLogueado}" id="header-logueado">
+  <header class="sticky-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-11 col-10 text-end">
+          <p class="bienvenida">Bienvenid@, <span th:text="${nombreUsuario}">Usuario</span></p>
+        </div>
+        <div class="col-md-1 col-2">
+          <figure class="icono-menu">
+            <a class="btn" data-bs-toggle="collapse" href="#collapseMenuNormal" role="button" aria-expanded="false" aria-controls="collapseMenuNormal">
+              <img th:src="@{/img/icons/menu.png}" alt="Menú" />
+            </a>
+          </figure>
+        </div>
+      </div>
+
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col">
+            <div class="container sticky-top">
+              <div class="collapse" id="collapseMenuNormal">
+                <div class="card card-body show-menu">
+                  <nav class="navbar navbar-dark" aria-label="First navbar example">
+                    <div class="container">
+                      <div class="row navbar-brand menu-log">
+                        <div class="col-auto nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="collapseAnhadirAreas" data-bs-toggle="dropdown" aria-expanded="false">Añadir</a>
+                          <ul class="dropdown-menu" aria-labelledby="collapseAnhadirAreas">
+                            <li><a class="dropdown-item" th:href="@{/anadir-artista}">Añadir Artista</a></li>
+                            <li><a class="dropdown-item" th:href="@{/anadir-obra}">Añadir Obra</a></li>
+                            <li><a class="dropdown-item" th:href="@{/anadir-enlace}">Añadir Enlace</a></li>
+                            <li><a class="dropdown-item" th:href="@{/anadir-publicacion}">Añadir Publicación</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-auto nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="collapseModificarAreas" data-bs-toggle="dropdown" aria-expanded="false">Modificar</a>
+                          <ul class="dropdown-menu segundo-menu" aria-labelledby="collapseModificarAreas">
+                            <li><a class="dropdown-item" th:href="@{/modificar-artistas}">Modificar Artista</a></li>
+                            <li><a class="dropdown-item" th:href="@{/modificar-obras}">Modificar Obra</a></li>
+                            <li><a class="dropdown-item" th:href="@{/modificar-enlaces}">Modificar Enlace</a></li>
+                            <li><a class="dropdown-item" th:href="@{/modificar-publicaciones}">Modificar Publicación</a></li>
+                          </ul>
+                        </div>
+                        <div class="col-auto nav-item">
+                          <a class="nav-link" th:href="@{/informes}">Informes</a>
+                        </div>
+                        <div class="col-auto nav-item">
+                          <a class="nav-link" th:href="@{/cerrar-sesion}">Cerrar Sesión</a>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <header class="cabecera">
+    <h1>ArtWomen</h1>
+    <p>Portal sobre la mujer y las artes</p>
+    <img th:src="@{/img/portada.png}" alt="Portada" />
+    <div class="container">
+      <nav class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills menu">
+          <li class="nav-item espacio"><a th:href="@{/}" class="nav-link" data-group="index">Inicio</a></li>
+          <li class="nav-item espacio"><a th:href="@{/artistas}" class="nav-link" data-group="artistas">Artistas</a></li>
+          <li class="nav-item espacio"><a th:href="@{/obras}" class="nav-link" data-group="obras">Obras</a></li>
+          <li class="nav-item espacio"><a th:href="@{/cuenta}" class="nav-link" data-group="cuenta">Cuenta</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<!-- Mostrar header para visitante -->
+<div th:unless="${usuarioLogueado}" id="header-visitante">
+  <header class="cabecera">
+    <h1>ArtWomen</h1>
+    <p>Portal sobre la mujer y las artes</p>
+    <img th:src="@{/img/portada.png}" alt="Portada" />
+    <div class="container">
+      <nav class="d-flex justify-content-center py-3">
+        <ul class="nav nav-pills menu">
+          <li class="nav-item espacio"><a th:href="@{/}" class="nav-link" data-group="index">Inicio</a></li>
+          <li class="nav-item espacio"><a th:href="@{/artistas}" class="nav-link" data-group="artistas">Artistas</a></li>
+          <li class="nav-item espacio"><a th:href="@{/obras}" class="nav-link" data-group="obras">Obras</a></li>
+          <li class="nav-item espacio"><a th:href="@{/cuenta}" class="nav-link" data-group="cuenta">Cuenta</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+</div>

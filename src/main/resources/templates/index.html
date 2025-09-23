@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtWomen - Mujeres que hicieron historia</title>
+
+  <!-- Favicon -->
+  <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/minified.css}" />
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header :: header(${usuarioLogueado}, ${nombreUsuario})"></div>
+
+  <section class="introduccion">
+    <div class="container text-center">
+      <h1>Mujeres que hicieron historia</h1>
+      <p>Un homenaje a todas aquellas mujeres artistas de todos los tiempos</p>
+    </div>
+  </section>
+
+    <div class="container contenedor-index">
+      <div class="row">
+        <div class="col-12 col-sm-4">
+          <figure>
+            <img src="/img/index/sofonisba.png" alt="Sofonisba Anguissola">
+          </figure>
+          <h3>Inspiración</h3>
+          <div class="linea-horizontal"></div>
+          <p>"La vida está llena de sorpresas; intento capturar estos preciosos momentos con los ojos bien abiertos"</p>
+          <p class="frase">Sofonisba Anguissola</p>
+        </div>
+        <div class="col-12 col-sm-4">
+          <figure>
+            <img src="/img/index/virginia.png" alt="Virginia Woolf">
+          </figure>
+          <h3>Libertad</h3>
+          <div class="linea-horizontal"></div>
+          <p>"No hay barrera, cerradura, ni cerrojo que puedas imponer a la libertad de mi mente"</p>
+          <p class="frase">Virginia Woolf</p>
+        </div>
+        <div class="col-12 col-sm-4">
+          <figure>
+            <img src="/img/index/clara.jpg" alt="Clara Schumann">
+          </figure>
+          <h3>Fortaleza</h3>
+          <div class="linea-horizontal"></div>
+          <p>"Alguna vez creí que tenía talento creativo, pero he renunciado a esta idea;
+            una mujer no debe desear componer. Ninguna ha sido capaz de hacerlo, así que ¿por qué podría esperarlo yo?"</p>
+          <p class="frase">Clara Schumann</p>
+        </div>
+      </div>
+    </div>
+
+    <figure>
+      <img src="/img/portadas/partida_ajedrez.png" alt="Lucia, Minerva y Europa Anguissola jugando al ajedrez">
+    </figure>
+
+    <section class="manifiesto">
+      <div class="container">
+        <div class="bocadillo-naranja">
+          <h2 class="pretitulo-manifiesto">mani</h2>
+          <h2 class="subtitulo-manifiesto">fiesto</h2>
+        </div>
+        <div class="cuadro-azul">
+          <div class="container">
+            <p>¿Por qué no existieron mujeres en las artes? Esta es una pregunta muy recurrente dentro de los
+              mismos académicos y neonatos en el tema. Sí hubo mujeres desde siempre, algunas con más o menos
+              éxito, más o menos admiradas por sus congéneres masculinos. Pero todas ellas fueron silenciadas
+              por una estructura social patriarcal, donde aquellas obras creadas por mujeres fueron consideradas
+              como obras menores y de poca importancia.</p>
+            <p><strong>ArtWomen</strong> quiere cambiar ese panorama y por ello nace con el objetivo de catalogar, estudiar y
+              visibilizar a las mujeres artistas y sus obras en todas las artes, países, culturas y épocas
+              desde una perspectiva de género. Todo esto con el objetivo de combatir las dinámicas machistas
+              para lograr un escenario amplio de equidad e igualdad en el que el género no es ningún
+              impedimento, ni pueda limitar las oportunidades, ni los roles a interpretar ni, mucho menos,
+              condicione la respuesta del público.</p>
+            <p><strong>ArtWomen</strong> se trata de un proyecto colaborativo en el que toda aquella interesada puede
+              aportar su granito de conocimiento para ampliar nuestro catálogo de autoras y obras en el
+              arte en su máximo esplendor de la palabra (pintura, performance, música, cine, literatura,
+              cerámica, arquitectura, etc.).</p>
+            <p>Las principales metas que <strong>ArtWomen</strong> se ha planteado para este proyecto son:</p>
+            <ol>
+              <li>Cambiar el panorama de infrarrepresentación, poca o nula representación de las mujeres en
+                todos los ámbitos de las artes, tanto actuales como antiguas, sin importar la cultura o la zona
+                geográfica.</li>
+              <li>Visibilizar a mujeres que han marcado la historia de las artes y aquellas que actualmente
+                siguen labrando este camino.</li>
+              <li>Concienciar sobre el machismo en las artes, en la educación e introducir una perspectiva de
+                género para cambiar esta situación.</li>
+              <li>Dar voz a los diferentes colectivos que lucharon y luchan por el cambio de escenario y
+                promover acciones conjuntas para generar una comunidad.</li>
+            </ol>
+            <p>Por último, también queremos destacar que para fomentar esa perspectiva feminista,
+              <strong>ArtWomen</strong> ha usado dos tipos de tipografías: Amaranth (diseñada por Gesine Todt) y
+              Montserrat (diseñada por Julieta Ulanovsky).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

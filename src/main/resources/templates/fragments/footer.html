@@ -1,0 +1,57 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-8">
+        <p>© David Granado Hermosín, 2022</p>
+        <p class="pie_legal"><a href="/">Aviso legal</a> -
+          <a href="/">Política de privacidad</a> -
+          <a href="/">Política de cookies</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="/scripts/jquery.min.js"></script>
+<script src="/scripts/bootstrap.js.map"></script>
+<script src="/scripts/bootstrap.min.js"></script>
+<script src="/scripts/form-validation.js"></script>
+<script src="/scripts/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Bootstrap y jQuery desde CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script para cambiar "active" en tiempo real -->
+<script>
+  $(document).ready(function () {
+    const path = window.location.pathname;
+
+    $('.nav-link').each(function () {
+      const group = $(this).data('group');
+      if (group && path.includes(group)) {
+        $('.nav-link').removeClass('active');
+        $(this).addClass('active');
+      }
+    });
+  });
+</script>
+
+<script>
+  fetch('/users/current')
+    .then(res => {
+    if (res.status === 401) {
+      document.getElementById('header-visitante').style.display = 'block';
+    } else {
+      return res.json();
+    }
+  })
+    .then(user => {
+    if (user) {
+      document.getElementById('nombreUsuario').textContent = user.nickUsuario;
+      document.getElementById('header-logueado').style.display = 'block';
+    }
+  })
+    .catch(() => {
+    document.getElementById('header-visitante').style.display = 'block';
+  });
+</script>

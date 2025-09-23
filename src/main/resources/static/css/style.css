@@ -1,0 +1,1245 @@
+@charset "UTF-8";
+
+/* FUENTES */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Light.eot');
+    src: url('/fonts/Montserrat-Light.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Montserrat-Light.woff2') format('woff2'),
+        url('/fonts/Montserrat-Light.woff') format('woff'),
+        url('/fonts/Montserrat-Light.ttf') format('truetype'),
+        url('/fonts/Montserrat-Light.svg#Montserrat-Light') format('svg');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.eot');
+    src: url('/fonts/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Montserrat-Regular.woff2') format('woff2'),
+        url('/fonts/Montserrat-Regular.woff') format('woff'),
+        url('/fonts/Montserrat-Regular.ttf') format('truetype'),
+        url('/fonts/Montserrat-Regular.svg#Montserrat-Regular') format('svg');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Medium.eot');
+    src: url('/fonts/Montserrat-Medium.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Montserrat-Medium.woff2') format('woff2'),
+        url('/fonts/Montserrat-Medium.woff') format('woff'),
+        url('/fonts/Montserrat-Medium.ttf') format('truetype'),
+        url('/fonts/Montserrat-Medium.svg#Montserrat-Medium') format('svg');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Bold.eot');
+    src: url('/fonts/Montserrat-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Montserrat-Bold.woff2') format('woff2'),
+        url('/fonts/Montserrat-Bold.woff') format('woff'),
+        url('/fonts/Montserrat-Bold.ttf') format('truetype'),
+        url('/fonts/Montserrat-Bold.svg#Montserrat-Bold') format('svg');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amaranth';
+    src: url('/fonts/Amaranth-Regular.eot');
+    src: url('/fonts/Amaranth-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Amaranth-Regular.woff2') format('woff2'),
+        url('/fonts/Amaranth-Regular.woff') format('woff'),
+        url('/fonts/Amaranth-Regular.ttf') format('truetype'),
+        url('/fonts/Amaranth-Regular.svg#Amaranth-Regular') format('svg');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amaranth';
+    src: url('/fonts/Amaranth-Bold.eot');
+    src: url('/fonts/Amaranth-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/fonts/Amaranth-Bold.woff2') format('woff2'),
+        url('/fonts/Amaranth-Bold.woff') format('woff'),
+        url('/fonts/Amaranth-Bold.ttf') format('truetype'),
+        url('/fonts/Amaranth-Bold.svg#Amaranth-Bold') format('svg');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* GENERAL */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat';
+	font-weight: 700;
+	color: var(--bs-primary);
+}
+
+p {
+	font-family: 'Amaranth';
+	color: var(--bs-primary);
+    font-weight: 400;
+}
+
+.linea-horizontal-volver {
+	height: 1px;
+	width: 100%;
+	background-color: var(--bs-primary);
+}
+
+.circulo-flecha {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--bs-primary);
+	border-radius: 50%;
+	transform: translateX(-50%);
+	margin-left: 2rem;
+	background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.linea-horizontal-volver + .circulo-flecha {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	margin-top: 0;
+}
+
+.bg-secondary .circulo-flecha {
+	background-color: transparent;
+}
+
+.flecha-svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+    height: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.circulo-flecha svg * {
+    fill: var(--bs-primary);
+}
+
+.volver {
+    padding-bottom: 4rem;
+}
+
+.volver2 {
+    margin-top: -3rem;
+}
+
+.volver p, .volver2 p, .volver3 p {
+    font-family: 'Amaranth';
+    font-size: 14px;
+    margin-top: -8%;
+    margin-left: 53%;
+}
+
+.forma-linea-h {
+	position: relative;
+	z-index: 1;
+	width: 30%;
+	margin-top: -25px;
+	padding-right: 65px;
+}
+
+.linea-horizontal-volver {
+	height: 1px;
+	width: 30%;
+	background-color: var(--bs-primary);
+	margin-bottom: 5%;
+	margin-left: 20%;
+	margin-right: 10%;
+    margin-top: -5%;
+}
+
+.scrolltop svg {
+    filter: drop-shadow(3px 5px 2px var(--bs-secondary));
+}
+
+.scrolltop svg * {
+    fill: var(--bs-primary)!important;
+    box-shadow: 10px 5px 5px var(--bs-secondary);
+}
+
+.formularios .row p {
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+/* HEADER */
+
+.cabecera {
+	background-color: var(--bs-secondary);
+}
+
+header, .header-cabecera {
+	padding-top: 2%;
+	text-align: center;
+	color: var(--bs-primary);
+	width: 100%;
+	padding-bottom: 2%;
+    background-color: var(--bs-secondary);
+}
+  
+header img,.header-cabecera img {
+	margin-top: 1%;
+}
+
+header p, .header-cabecera p {
+	font-family: 'Montserrat';
+	font-weight: 500;
+	font-size: 20px;
+}
+
+header h1, .header-cabecera h1 {
+	font-size: 45px;
+}
+
+.container header {
+	padding-top: 1.5rem!important;
+}
+
+ul {
+	width: 100%;
+}
+
+li {
+	border: 2px solid var(--bs-primary);
+	border-radius: 10px;
+	width: 15%;
+}
+
+.espacio {
+	margin-right: 13%;
+}
+
+li a {
+	text-transform: uppercase;
+	color: var(--bs-primary) /*!important;*/;
+	font-family: 'Amaranth';
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-secondary)!important;
+    background-color: var(--bs-primary);
+}
+
+.nav {
+    display: flex !important;
+    flex-wrap: nowrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.sticky-top {
+    padding-bottom: 0;
+}
+
+/* MENU */
+
+.bienvenida {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.icono-menu {
+    margin-top: -20%;
+}
+
+#headingAnhadirAreas a svg * {
+	fill: var(--bs-primary);
+}
+
+.show-menu {
+    width: 100%;
+    background-color: var(--bs-secondary);
+    border: none;
+}
+
+.menu a[data-bs-toggle="collapse"] svg {
+	position: absolute;
+	width: auto;
+	height: 10%;
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+	transition: transform .3s linear;
+    margin-left: 5%;
+}
+
+.show-menu a svg * {
+	fill: var(--bs-primary)!important;
+}
+
+.collapse-body {
+	padding: .5rem 0 .5rem 1rem;
+}
+
+.nav-link {
+    color: var(--bs-primary);
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--bs-primary-light);
+}
+
+.dropdown ul {
+    background-color: var(--bs-secondary);
+    border: none;
+}
+
+.dropdown li {
+    border: none;
+}
+
+.dropdown li a {
+    width: 10rem;
+}
+
+.menu-log a {
+    font-family: 'Amaranth';
+	font-weight: 700;
+	font-size: 20px;
+}
+
+.menu-log ul li a {
+    font-family: 'Montserrat';
+	font-weight: 500;
+	font-size: 15px;
+    text-transform: none;
+    color: var(--bs-primary);
+}
+
+.menu-log ul li a:hover, .menu-log ul li a:focus {
+    background-color: var(--bs-primary);
+    color: var(--bs-secondary)!important;
+}
+
+.navbar {
+    margin-left: 8rem;
+}
+
+.dropdown-menu {
+    width: 13rem;
+}
+
+/* FOOTER */
+
+footer{
+    background: var(--bs-secondary);
+    padding-top: 2%;
+}
+
+footer p {
+    font-size: 13px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    line-height: 0.6em;
+}
+
+.social svg {
+    height: 25px;
+    width: 25px;
+}
+
+.social svg * {
+    fill: var(--bs-primary) !important;
+}
+
+/* INDEX */
+
+.introduccion {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.introduccion h2 {
+	font-size: 30px;
+}
+
+.introduccion p {
+	font-size: 18px;
+	font-weight: 700;
+	margin-top: 1.5%;
+}
+
+.linea-horizontal {
+	height: 1px;
+	width: 80%;
+	background-color: var(--bs-primary);
+	margin-bottom: 5%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.contenedor-index {
+    padding-bottom: 4rem;
+}
+
+.contenedor-index figure {
+	align-items: center;
+}
+
+.contenedor-index img {
+	border: 2px solid white; 
+	border-radius: 10px;
+	width: 80%;
+	display:block;
+	margin:auto;
+}
+
+.contenedor-index h3 {
+	font-weight: 700;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.contenedor-index p {
+	font-weight: 400;
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.frase {
+    font-family: 'Montserrat';
+    font-weight: 500!important;
+    text-align: right!important;
+    margin-top: 10%;
+}
+
+.manifiesto {
+    padding-bottom: 6rem!important;
+}
+
+.manifiesto h2 {
+    text-transform: uppercase;
+    font-size: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bocadillo-naranja {
+    background-color: var(--bs-secondary);
+    position: relative;
+    z-index: 1;
+    width: 22rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+}
+
+.bocadillo-naranja:after {
+    content: '';
+	position: absolute;
+	bottom: -23%;
+	left: calc(50% - 25px);
+	width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 43.3px 25px 0 25px;;
+    border-color:  #EE964B transparent transparent transparent;
+}
+
+.pretitulo-manifiesto {
+    margin-left: 10%;
+}
+
+.subtitulo-manifiesto {
+    font-family: 'Amaranth';
+    margin-left: 22%;
+    line-height: 0.1em;
+}
+
+.cuadro-azul {
+    background-color: var(--bs-primary);
+    margin-top: -4%;
+    padding-top: 7rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    text-align: justify;
+    padding-bottom: 4rem;
+}
+
+.cuadro-azul p {
+    color: #fff;
+}
+
+.cuadro-azul p strong {
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+}
+
+.cuadro-azul li {
+    color: #fff;
+    width: 90%;
+    margin-top: 2%;
+    font-family: 'Amaranth';
+}
+
+/* CUENTA */
+
+.contenedor-logo {
+    margin-top: -7%;
+    padding-bottom: 4rem;
+}
+
+.logo {
+    width: 20%;
+}
+
+.form-signin span {
+    color: var(--bs-secondary);
+    font-weight: 700;
+}
+
+.ya-cuenta {
+    text-align: justify;
+}
+
+.ya-cuenta a {
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 20px;
+    border: 1px solid;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 5px;
+}
+
+.ya-cuenta a:hover {
+    color: var(--bs-secondary);
+    background-color: var(--bs-primary);
+}
+
+/* CREAR CUENTA */
+
+.contenedor-crear {
+    margin-top: -7%;
+    padding-bottom: 4rem;
+}
+
+.formulario-creacion-cuenta {
+    padding-top: 0rem!important;
+}
+
+.titulo-formulario-creacion-cuenta {
+    margin-bottom: 4rem;
+}
+
+.titulo-formulario-creacion-cuenta h2 {
+    text-align: center;
+}
+
+.titulo-formulario-creacion-cuenta p {
+    text-align: center;
+    font-size: 15px;
+}
+
+.formulario-creacion-cuenta span {
+    color: var(--bs-secondary);
+}
+
+.formulario-creacion-cuenta .container p {
+    text-align: right;
+    font-size: 20px;
+}
+
+.formulario-creacion-cuenta .container input {
+    background-color: #b1bdd6;
+    color: var(--bs-primary);
+    border-radius: 10px;
+    border-color: #b1bdd6;
+    font-family: 'Amaranth';
+    font-size: 20px;
+    width: 60%;
+}
+
+.formulario-creacion-cuenta .container .row {
+    margin-bottom: 2%;
+}
+
+.boton-registrar {
+    color: var(--bs-primary);
+    font-weight: 700;
+    font-family: 'Montserrat';
+    width: 10rem;
+    margin-top: 2rem;
+}
+
+.formulario-creacion-cuenta .btn-secondary:hover {
+    background-color: var(--bs-primary);
+    color: var(--bs-secondary);
+}
+
+.alert {
+    margin-top: 2rem!important;
+}
+
+.login-cuenta {
+    margin-top: 2rem;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Amaranth';
+	color: var(--bs-primary);
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.login-cuenta a:hover {
+    color: var(--bs-secondary) !important;
+}
+
+/* CUENTA */
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+.form-signin h2 {
+    font-weight: 700 !important;
+}
+
+.form-signin .form-floating {
+    margin-top: 2rem;
+}
+  
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input {
+    background-color: #b1bdd6;
+    color: var(--bs-primary);
+    border-radius: 10px;
+    border-color: #b1bdd6;
+    font-family: 'Amaranth';
+    font-size: 20px;
+}
+
+.form-signin label {
+    color: var(--bs-primary) !important;
+    font-size: 20px;
+}
+  
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+}
+  
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+}
+
+.btn-inicio-sesion {
+    margin-bottom: 2rem;
+    color: var(--bs-primary);
+    font-weight: 700;
+    font-family: 'Montserrat';
+}
+
+.form-signin .btn-inicio-sesion:hover {
+    background-color: var(--bs-primary);
+    color: var(--bs-secondary);
+}
+
+.login-cuenta2 {
+    margin-bottom: 2rem;
+}
+
+.form-control {
+    color: var(--bs-primary) !important;
+    font-size: 20px;
+    background-color: #b1bdd6 !important;
+}
+
+/* AÑADIR ARTISTA */
+
+.form-artista h2 {
+    font-size: 4.5rem;
+}
+
+.form-floating:focus-within {
+    z-index: 2;
+}
+
+.select-img {
+    position: relative;
+    display: inline-block;
+}
+
+.select-img::before {
+    background-color: #b1bdd6 !important;
+    color: var(--bs-primary) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    content: 'Selecciona la imagen';
+    font-size: 20px;
+    position: absolute;
+    /* left: 0; */
+    /* right: 0; */
+    top: 0;
+    bottom: 0;
+    width: 58%;
+    height: 75%;
+    font-family: 'Amaranth';
+}
+
+.select-img input {
+    width: 58%;
+    height: 75%;
+}
+
+.form-floating:focus-within {
+    z-index: 2;
+}
+
+/* AÑADIR OBRA */
+
+.textarea-form {
+    width: 60%;
+    border-radius: 10px;
+    font-family: 'Amaranth';
+    font-size: 20px;
+}
+
+.volver3 {
+    margin-top: -10rem;
+}
+
+.select-area option {
+    color: var(--bs-primary);
+}
+
+.sub-formulario .titulo {
+    text-align: left!important;
+    margin-left: 9rem;
+}
+
+.sub-formulario select {
+    border-radius: 10px;
+    width: 55%;
+    margin-left: 8rem;
+    background-color: var(--bs-secondary);
+    color: var(--bs-primary);
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.sub-formulario select:hover {
+    background-color: var(--bs-primary);
+    color: var(--bs-secondary);
+}
+
+.sub-formulario-p  {
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+/* AÑADIR PUBLICACION */
+
+.boton-registrar-pub {
+    width: 14rem;
+}
+
+.publicacion h2 {
+    padding-right: 35rem;
+    padding-left: 35rem;
+    margin-top: -7rem;
+}
+
+.publicaciones {
+    padding-bottom: 4rem;
+}
+
+.publicaciones figure {
+    width: 70%;
+}
+
+.publicaciones figure img {
+    border-radius: 10px;
+}
+
+.publicaciones form {
+    text-align: center;
+}
+
+.publicaciones input {
+    color: var(--bs-secondary);
+    font-weight: 700;
+    font-family: 'Montserrat';
+    width: 16rem;
+    height: 4rem;
+    margin-top: 2rem;
+}
+
+.publicacion2 h2 {
+    padding-right: 35rem;
+    padding-left: 35rem;
+}
+
+/* ARTISTAS */
+
+.titulo-artistas, .titulo-artistas h2 {
+    margin-top: -12rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.select-buscador {
+    margin-left: 9rem;
+    background-color: var(--bs-secondary)!important;
+    text-align: center;
+}
+
+.input-buscar-art::placeholder {
+    color: var(--bs-primary);
+}
+
+.contenedor-artistas {
+    margin-top: 4rem;
+}
+
+.contenedor-artistas figure {
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+
+.contenedor-artistas figure img {
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.columna-artista {
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
+.columna-artista figure img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.columna-artista h5 {
+    margin-top: 1rem;
+}
+
+.columna-artista a p {
+    font-family: 'Montserrat';
+    text-align: right;
+    color: var(--bs-secondary);
+    font-size: 16px !important;
+    font-weight: 300 !important;
+}
+
+.anho {
+    text-align: center!important;
+}
+
+.rama {
+    font-family: 'Amaranth';
+    font-weight: 500;
+}
+
+/* ARTISTA */
+
+.nombre-artista {
+    text-align: center;
+}
+
+.nombre-artista h2 {
+    font-size: 60px;
+}
+
+.nombre-artista h4 {
+    font-family: 'Amaranth';
+    font-size: 35px;
+    color:  var(--bs-secondary);
+}
+
+.nombre-artista h6 {
+    font-family: 'Amaranth';
+    font-weight: 500;
+    font-size: 25px;
+    margin-top: 2rem;
+}
+
+.artista {
+    margin-top: 4rem;
+}
+
+.artista img {
+    width: 90%;
+    margin: auto;
+}
+
+.artista .bocadillo-naranja {
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.artista .bocadillo-naranja:after {
+    bottom: 93%;
+    transform: rotate(60deg);
+}
+
+.datos-creacion p {
+    text-align: left !important;
+    margin-left: 6rem;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.datos-creacion p span {
+    color:  var(--bs-primary);
+    font-family: 'Montserrat';
+}
+
+.bocadillo-azul {
+    background-color: var(--bs-primary);
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 4rem;
+}
+
+.bocadillo-azul:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    left: calc(100% - 25px);
+    top: calc(50% - 25px);
+    border-width: 43.3px 25px 0 25px;
+    border-color: var(--bs-primary) transparent transparent transparent;
+    content: '';
+	position: absolute;
+    transform: rotate(30deg);
+}
+
+.bocadillo-azul p {
+    color:  var(--vs-secondary);
+}
+
+.biografia {
+    text-transform: uppercase;
+    font-size: 30px!important;
+    text-align: center!important;
+    font-family: 'Amaranth';
+    color: var(--bs-secondary);
+}
+
+.bio {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    text-align: justify;
+    margin-top: 4rem;
+    margin-left: 6rem;
+    margin-bottom: 4rem;
+}
+
+.bio p {
+    text-align: justify !important; 
+    text-indent: 2em; 
+}
+
+.lista-obras {
+    margin-left: 6rem;
+}
+
+.lista-obras li {
+    border: none;
+    color:  var(--bs-primary);
+    width: 85%;
+    margin-top: 2rem;
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    text-transform: none;
+}
+
+.lista-obras a {
+    font-weight: 500;
+    font-style: italic;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    text-transform: none;
+}
+
+.lista-obras a:hover {
+    color: var(--bs-secondary);
+}
+
+.lista-publicaciones li {
+    width: 90%;
+    font-family: 'Montserrat';
+    text-align: justify;
+}
+
+.apellido {
+    text-transform: uppercase;
+}
+
+.tituloPub {
+    font-style: italic;
+}
+
+.sin-publicacion {
+    font-size: 16px!important;
+    font-family: 'Montserrat';
+    color: var(--bs-secondary);
+    font-weight: 400!important;
+    margin-left: 1rem!important;
+    margin-right: 2rem;
+}
+
+.no-obras {
+    font-size: 16px!important;
+    font-family: 'Montserrat';
+    color: var(--bs-secondary);
+    font-weight: 400!important;
+    text-align: left!important;
+    margin-top: 2rem;
+    margin-right: 7rem;
+}
+
+.lista-obras a p:hover {
+    color: var(--bs-primary);
+}
+
+.lista-publicaciones a p:hover {
+    background-color: var(--bs-secondary);
+    color: var(--bs-primary);
+}
+
+.bio a:hover {
+    color: var(--bs-secondary);
+}
+
+/* APROBAR ARTISTA */
+
+.tabla {
+    margin: 4rem 2rem;
+    width: 95%;
+}
+
+.tabla th {
+    text-align: center;
+    color: var(--bs-primary);
+    font-family: 'Amarath';
+    font-weight: 700;
+}
+
+.tabla td {
+    color: var(--bs-primary);
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+.volver3 {
+    margin-top: -10rem;
+}
+
+/* APROBAR PUBLICACIONES */
+
+.publicaciones-titulo {
+    text-align: left!important;
+    color: var(--bs-secondary);
+}
+
+.linea-horizontal-naranja {
+    width: 100%;
+    background-color: var(--bs-secondary);
+    height: 1px;
+    margin-bottom: 5%;
+    margin-right: 10%;
+}
+
+/* OBRA */
+
+.obras-listado {
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+
+.lista-enlaces {
+    margin-left: 6rem;
+}
+
+.lista-enlaces li {
+    border: none;
+    color: var(--bs-primary);
+    width: 85%;
+    margin-top: 2rem;
+    text-transform: none;
+}
+
+.lista-enlaces a {
+    font-weight: 500;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    text-transform: none;
+}
+
+.lista-enlaces a:hover {
+    color: var(--bs-secondary);
+}
+
+/* MODIFICAR */
+
+#preview-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#preview-img {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#remove-img {
+    display: none; /* Oculto por defecto */
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#remove-img:hover {
+    background-color: darkred;
+}
+
+/* MEDIAS */
+
+
+/*`lg` applies to medium devices (tablets, less than 992px) */
+@media (max-width: 992px) {
+    .icono-menu {
+        width: 4rem;
+    }
+
+    .nav li a {
+        font-size: 17px;
+    }
+}
+
+/* `md` applies to small devices (landscape phones, less than 768px) */
+@media (max-width: 768px) {
+    .nav li {
+        margin-left: auto;
+        margin-right: auto;
+        width: 20%;
+    }
+
+    .cabecera img {
+        width: 75%;
+        height: auto;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+    .cabecera img {
+        width: 19rem;
+    }
+    .formulario-creacion-cuenta p {
+        text-align: left !important;
+        margin-left: 10%;
+    }
+
+    .formulario-creacion-cuenta input {
+        margin-left: 10%;
+    }
+    .nav li a {
+        font-size: 13px;
+    }
+    .social svg {
+        height: 20px;
+        width: 20px;
+    }
+    .titulo-artistas h2 {
+        margin-top: 10rem;
+    }
+
+    .select-buscador, .formulario-creacion-cuenta .container input {
+        margin-left: 5rem;
+    }
+
+    .nombre-artista h2 {
+        margin-top: 8rem;
+        font-size: 45px;
+    }
+
+    .bocadillo-azul:after {
+        top: calc(100% - 25px);
+        left: calc(50% - 25px);
+        transform: rotate(120deg);
+    }
+
+    .biografia {
+        margin-top: 3rem;
+    }
+
+    .lista-obras {
+        margin-left: 0rem;
+    }
+
+    .col-bio p {
+        text-align: justify!important;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .sticky-top {
+        padding-top: 2rem;
+    }
+
+    .lista-enlaces {
+        margin-left: 0rem;
+    }
+}

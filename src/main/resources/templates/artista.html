@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtWomen - Mujeres que hicieron historia</title>
+
+  <!-- Favicon -->
+  <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/minified.css}" />
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: header(${usuarioLogueado}, ${nombreUsuario})"></div>
+<main>
+  <figure>
+    <img src="/img/portadas/santo-entierro-cristo.png" alt="Santo Entierro de Cristo de Luisa Roldan">
+  </figure>
+
+  <div class="volver3">
+    <div class="forma-linea-h d-none d-md-block">
+      <div class="circulo-flecha">
+        <img src="/img/icons/arrow-left.svg" alt="Flecha" class="flecha-svg">
+      </div>
+      <div class="linea-horizontal-volver"></div>
+      <p>Volver a Artistas</p>
+      <a th:href="@{/artistas}" class="stretched-link"></a>
+    </div>
+  </div>
+
+  <section class="formulario-creacion-cuenta">
+
+    <div class="container">
+
+      <div class="nombre-artista">
+        <h2 th:text="${artista.nombreArtista + ' ' + artista.apellidosArtista}"></h2>
+        <h4 th:text="${
+            (artista.anhoNac == 0 && artista.anhoDef == 0) ? '(Sin fecha - Sin fecha)' :
+            (artista.anhoNac == 0) ? '(Sin fecha - ' + artista.anhoDef + ')' :
+            (artista.anhoDef == 0) ? '(' + artista.anhoNa + ')' :
+            '(' + artista.anhoNac + '-' + artista.anhoDef + ')'
+        }"></h4>
+        <h6 th:text="${
+            (rama.nombreRama == null or #strings.isEmpty(rama.nombreRama)) ?
+                ((artista.pais == null or #strings.isEmpty(artista.pais)) ? '' : artista.pais) :
+            (artista.pais == null or #strings.isEmpty(artista.pais)) ? rama.nombreRama :
+            rama.nombreRama + ' - ' + artista.pais
+        }"></h6>
+      </div>
+
+      <div class="row artista">
+        <div class="col-md-5 col-12 datos-creacion">
+          <figure>
+            <img src="/img/artistas/<?php echo $imagen;?>" alt="<?php echo $nombre . " " . $apellidos;?>">
+          </figure>
+          <div class="bocadillo-naranja">
+            <p>Creado por: <span><?php echo $usuario;?></span></p>
+            <p>Última modificación: <span><?php echo isset($fechaFormateada) && !empty($fechaFormateada) ? $fechaFormateada : 'Sin modificaciones'; ?></span></p>
+            <p>Obras registradas: <span><?php echo $cantidad;?></span></p>
+          </div>
+          <div class="bocadillo-azul">
+            <p>Publicaciones</p>
+            <ul class="lista-publicaciones">
+              <?php
+
+		        	$sqlConsultaPub = "SELECT nombreAutor, apellidoAutor, titulo, anhoPub, editorial FROM publicacion p
+											JOIN artista_publicacion USING(idPub)
+											JOIN artista a USING(idArtista)
+											WHERE a.idArtista = $idArtista;";
+
+		        	$publicaciones = $con->query($sqlConsultaPub);
+              $existe = False;
+
+              while($publi = $publicaciones->fetch_array()) {
+
+              $existe = True;
+
+              $nombreAutor = $publi[0];
+              $apellidosAutor = $publi[1];
+              $tituloPub = $publi[2];
+              $anhoPub = $publi[3];
+              $editorial = $publi[4];
+
+              ?>
+              <li><?php echo '<span class="apellido">' . $apellidosAutor . "</span>, " . $nombreAutor . ': <span class="tituloPub">' . $tituloPub . "</span>. " . $editorial . ", " . $anhoPub . ".";?></a></li>
+              <?php
+					}
+
+					if ($existe == False) {?>
+
+              <a href="<?= $base_url;?>cuenta.php">
+                <p class="sin-publicacion">No hay publicaciones registradas de esta artista. Por favor, regístrate o inicia sesión si quieres agregar una</p>
+              </a>
+
+              <?php
+		            }
+
+		            $publicaciones->free()?>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-7 col-12 col-bio">
+          <h5 class="biografia">Biografía</h5>
+          <div class="bio">
+            <p>
+              <?php
+					if ($biografia == "" || is_null($biografia)) {
+						echo "<a href='{$base_url}/cuenta.php'>No hay biografía registrada. Por favor, regístrate o inicia sesión si quieres agregar una</a>";
+              } else {
+              // Convertir los saltos de línea en la biografía en etiquetas <p>
+            $biografia_con_p = nl2br($biografia); // Convierte los saltos de línea en <br>
+            $biografia_con_p = str_replace("<br />", "</p><p>", "<p>" . $biografia_con_p . "</p>"); // Cada <br> se convierte en <p>
+
+            echo $biografia_con_p;
+            }
+            ?>
+          </p>
+          </div>
+          <h5 class="biografia">Obras</h5>
+          <ul class="lista-obras">
+
+            <?php
+				$sqlConsultaObras = "SELECT o.nombre, o.idObra FROM obra o
+							JOIN artista_obra USING(idObra)
+							JOIN artista a USING(idArtista)
+							WHERE a.idArtista = $idArtista AND o.visible = 1;";
+
+				$obras = $con->query($sqlConsultaObras);
+
+            $existe = False;
+
+            while ($obra = $obras->fetch_array()) {
+
+            $existe = True;
+
+            $nombreObra = $obra[0];
+            $idObra = $obra[1];
+            ?>
+            <li><a href="<?= $base_url;?>obra.php?id=<?=$idObra?>"><?php echo $nombreObra;?></a></li>
+            <?php
+				}
+
+				if ($existe == False) {?>
+
+            <a href="<?= $base_url;?>cuenta.php">
+              <p class="no-obras">No hay obras registradas de esta artista. Por favor, regístrate o inicia sesión si quieres agregar una</p>
+            </a>
+
+            <?php
+				}
+
+				$obras->free()?>
+          </ul>
+        </div>
+      </div>
+      <?php $artista->free()?>
+    </div>
+  </section>
+
+  <div class="volver3">
+    <div class="forma-linea-h d-none d-md-block">
+      <div class="circulo-flecha">
+        <img src="/img/icons/arrow-left.svg" alt="Flecha" class="flecha-svg">
+      </div>
+      <div class="linea-horizontal-volver"></div>
+      <p>Volver a Artistas</p>
+      <a th:href="@{/artistas}" class="stretched-link"></a>
+    </div>
+  </div>
+
+</main>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
