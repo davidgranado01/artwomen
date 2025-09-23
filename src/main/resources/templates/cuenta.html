@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtWomen - Mujeres que hicieron historia</title>
+
+  <!-- Favicon -->
+  <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/minified.css}" />
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: header(${usuarioLogueado}, ${nombreUsuario})"></div>
+
+<main>
+  <figure>
+    <img src="/img/portadas/mundo-magico-mayas.png" alt="El mundo mágico de los mayas de Leonora Carrington" />
+  </figure>
+
+  <div class="container contenedor-logo">
+    <figure class="logo">
+      <img src="/img/logo.png" alt="ArtWomen" />
+    </figure>
+  </div>
+
+  <!-- Si NO hay usuario logueado, mostramos el formulario de login -->
+  <div th:if="${usuarioLogueado == null}" class="form-signin">
+    <p>No hay usuario logueado</p>
+    <form method="post" action="/acceso-cuenta" name="inicioValida">
+      <h2 class="h4 mb-3 fw-normal">Por favor, inicie sesión</h2>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" name="nickUsuario" placeholder="Usuario" required />
+        <label for="floatingInput">Usuario</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="contrasenhaUsuario" placeholder="Password" required />
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <div class="container login-cuenta login-cuenta2">
+        <a href="/crear-cuenta.html">¿Aún no tienes cuenta? Créatela</a>
+      </div>
+      <button type="submit" class="w-100 btn btn-lg btn-secondary btn-inicio-sesion">Iniciar sesión</button>
+    </form>
+  </div>
+
+  <!-- Si hay usuario logueado, mostramos mensaje y opción para cerrar sesión -->
+  <div th:if="${usuarioLogueado != null}" class="form-signin ya-cuenta">
+    <p>Usuario logueado: <span th:text="${nombreUsuario}"></span></p>
+    <p>Ya tienes iniciada una sesión con la cuenta <span th:text="${nombreUsuario}">Usuario</span>.
+      Por favor, si quiere entrar con otro usuario primero cierre esta sesión haciendo click en el siguiente enlace.
+    </p>
+    <a class="nav-link" th:href="@{/cerrar-sesion}">Cerrar Sesión</a>
+  </div>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

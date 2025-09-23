@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArtWomen - Mujeres que hicieron historia</title>
+
+  <!-- Favicon -->
+  <link rel="icon" th:href="@{/img/favicon.ico}" type="image/x-icon" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/main.css}" />
+  <link rel="stylesheet" th:href="@{/css/minified.css}" />
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div th:replace="fragments/header :: header(${usuarioLogueado}, ${nombreUsuario})"></div>
+
+<main>
+  <figure>
+    <img src="/img/portadas/mundo-magico-mayas.png" alt="El mundo mágico de los mayas de Leonora Carrington" />
+  </figure>
+
+  <div class="container contenedor-logo">
+    <figure class="logo">
+      <img src="/img/logo.png" alt="ArtWomen" />
+    </figure>
+  </div>
+
+  <main class="form-signin">
+    <form action="/procesar-login" method="POST">
+      <input type="text" name="username" placeholder="Usuario" required />
+      <input type="password" name="password" placeholder="Contraseña" required />
+      <button type="submit">Iniciar sesión</button>
+    </form>
+  </main>
+</main>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
