@@ -46,12 +46,14 @@
             (artista.anhoDef == 0) ? '(' + artista.anhoNa + ')' :
             '(' + artista.anhoNac + '-' + artista.anhoDef + ')'
         }"></h4>
+        
         <h6 th:text="${
             (rama.nombreRama == null or #strings.isEmpty(rama.nombreRama)) ?
                 ((artista.pais == null or #strings.isEmpty(artista.pais)) ? '' : artista.pais) :
             (artista.pais == null or #strings.isEmpty(artista.pais)) ? rama.nombreRama :
             rama.nombreRama + ' - ' + artista.pais
         }"></h6>
+
       </div>
 
       <div class="row artista">
